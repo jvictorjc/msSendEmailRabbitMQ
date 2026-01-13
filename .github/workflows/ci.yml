@@ -10,6 +10,10 @@ jobs:
   build-test-sonar:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: user
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,3 +41,4 @@ jobs:
             -Dsonar.organization=$SONAR_ORG \
             -Dsonar.projectKey=$SONAR_PROJECT_KEY \
             -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+
