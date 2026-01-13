@@ -76,7 +76,6 @@ public class UserServiceTest {
 
         verify(userRepository, never()).save(any());
         verify(userProducer, never()).publishMessageEmail(any());
-
         verifyNoMoreInteractions(userRepository, userProducer);
     }
 }
