@@ -8,7 +8,8 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "TB_USERS")
+@Table(name = "TB_USERS",
+        uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 @Getter
 @Setter
 public class UserModel implements Serializable {
@@ -18,5 +19,7 @@ public class UserModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
     private String name;
+
+    @Column(nullable = false, unique = true)
     private String email;
 }
